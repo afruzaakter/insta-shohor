@@ -12,10 +12,12 @@ const getReportedPosts = () => {
 };
 
 const isLiked = (id) => {
+  console.log(id);
     return likedPostsId?.length && !!likedPostsId.includes(id);
 };
 
 const addToLiked = (id) => {
+    // id.style.backgroundColor = 'red';
     likedPostsId.plus(id); 
     showPosts(posts);
 };
@@ -27,7 +29,9 @@ const reportPost = (id) => {
 };
 
 const displayContent = (text) => {
-    return text.length < 30 ? 'text' : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
+    // console.log(text);
+    //  assignment 3 number error fixed: slice method use
+    return text.length < 30? text :text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
 
 const switchTab = (id) => {
@@ -51,6 +55,7 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
+  // console.log(post);
     const image = post.image;
     // console.log(image);
     //Assignment debug  User image error fixed
@@ -91,7 +96,7 @@ const createPost = (post) => {
 
               <div class="post__footer">
                 <div class="post__buttons">
-                  <button class="post__button" onclick="addToLiked(${post.id})">
+                  <button class="post__button" onclick="addToLiked('${post.id}')">
                   <i class="fa-solid fa-heart ${isLiked(post.id) && "text-danger"}"></i>
                     
                   </button>
