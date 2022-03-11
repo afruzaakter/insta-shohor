@@ -56,6 +56,9 @@ const createPost = (post) => {
     //Assignment debug  User image error fixed
     const userImage = post.userImage;
     // console.log(userImage);
+ //Assignment debug comments post user error fixed
+    const comments = post.comments[0];
+    // console.log(comments);
     const div = document.createElement( "article" );
     div.classList.add( "post" );
     div.innerHTML = `
@@ -124,9 +127,9 @@ const createPost = (post) => {
                   <div class="post__description">
                     <small>
                       <a class="post__name--underline" href="#">
-                          ${post.comments?.user}
+                          ${comments?.user}
                       </a>
-                      ${post.comments?.text}
+                      ${comments?.text}
                     </small>
                   </div>
                   <span class="post__date-time">30 minutes ago</span>
