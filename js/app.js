@@ -12,13 +12,13 @@ const getReportedPosts = () => {
 };
 
 const isLiked = (id) => {
-  console.log(id);
+  // console.log(id);
     return likedPostsId?.length && !!likedPostsId.includes(id);
 };
 
 const addToLiked = (id) => {
-    // id.style.backgroundColor = 'red';
-    likedPostsId.plus(id); 
+  console.log(id);
+    likedPostsId.push(id); 
     showPosts(posts);
 };
 
@@ -96,8 +96,8 @@ const createPost = (post) => {
 
               <div class="post__footer">
                 <div class="post__buttons">
-                  <button class="post__button" onclick="addToLiked('${post.id}')">
-                  <i class="fa-solid fa-heart ${isLiked(post.id) && "text-danger"}"></i>
+                  <button class="post__button" onclick="addToLiked(${post.id})">
+                  <i class="fa-solid fa-heart ${isLiked(post.id) && 'text-danger'}"></i>
                     
                   </button>
                   <button class="post__button">
@@ -107,9 +107,9 @@ const createPost = (post) => {
 
                   <div class="post__indicators"></div>
 
-                  <button class="post__button post__button--align-right" onclick="reportPost(${
+                  <button class="post__button post__button--align-right" onclick="reportPost('${
                       post.id
-                  })">
+                  }')">
                     <i class="fa-solid fa-ban"></i>
                   </button>
                 </div>
