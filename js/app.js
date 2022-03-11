@@ -17,12 +17,12 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-  console.log(id);
     likedPostsId.push(id); 
     showPosts(posts);
 };
 
 const reportPost = (id) => {
+  console.log(id);
     reportedPostsId.push(id);
     const remainingPosts = posts.filter((post) => !reportedPostsId.includes(post.id));
     showPosts(remainingPosts);
@@ -107,9 +107,7 @@ const createPost = (post) => {
 
                   <div class="post__indicators"></div>
 
-                  <button class="post__button post__button--align-right" onclick="reportPost('${
-                      post.id
-                  }')">
+               <button class="post__button post__button--align-right" onclick="reportPost(${post.id})">
                     <i class="fa-solid fa-ban"></i>
                   </button>
                 </div>
@@ -145,7 +143,10 @@ const createPost = (post) => {
 };
 
 const showPosts = (posts) => {
+  // console.log(posts);
+
     const productsContainer = document.getElementById( "posts" );
+    // console.log(productsContainer);
     productsContainer.innerHTML = "";
 
     posts.forEach((post) => {
@@ -163,8 +164,11 @@ const displayLikedPosts = () => {
 };
 
 const displayReportedPosts = () => {
+  document.getElementById( "reported" ).innerHTML = "";
     const reportedPosts = getReportedPosts();
-    posts.forEach((post) => {
+    // console.log(reportedPosts);
+    reportedPosts.forEach((post) => {
+      // console.log(post);
         const div = createPost(post);
         document.getElementById( "reported" ).appendChild(div);
     });
